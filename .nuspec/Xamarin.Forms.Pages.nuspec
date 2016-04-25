@@ -47,12 +47,16 @@
   </metadata>
   <files>
     <file src="..\Xamarin.Forms.Pages\bin\$Configuration$\Xamarin.Forms.Pages.dll" target="lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10" />
+    <file src="..\Xamarin.Forms.Pages\bin\$Configuration$\Xamarin.Forms.Pages.dll*pdb" target="lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10" />
 
     <file src="..\Xamarin.Forms.Pages\bin\$Configuration$\Xamarin.Forms.Pages.dll" target="lib\MonoAndroid10" />
+    <file src="..\Xamarin.Forms.Pages\bin\$Configuration$\Xamarin.Forms.Pages.dll*pdb" target="lib\MonoAndroid10" />
 
     <file src="..\Xamarin.Forms.Pages\bin\$Configuration$\Xamarin.Forms.Pages.dll" target="lib\Xamarin.iOS10" />
+    <file src="..\Xamarin.Forms.Pages\bin\$Configuration$\Xamarin.Forms.Pages.dll*pdb" target="lib\Xamarin.iOS10" />
 
     <file src="..\Xamarin.Forms.Pages\bin\$Configuration$\Xamarin.Forms.Pages.dll" target="lib\MonoTouch10" />
+    <file src="..\Xamarin.Forms.Pages\bin\$Configuration$\Xamarin.Forms.Pages.dll*pdb" target="lib\MonoTouch10" />
 
     <file src="..\Xamarin.Forms.Pages\bin\$Configuration$\Xamarin.Forms.Pages.dll" target="lib\WP80" />
     
