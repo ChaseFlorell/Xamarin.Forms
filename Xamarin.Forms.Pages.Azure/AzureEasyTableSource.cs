@@ -22,7 +22,7 @@ namespace Xamarin.Forms.Pages.Azure
 			var mobileServiceClient = new MobileServiceClient(Uri);
 			IMobileServiceTable table = mobileServiceClient.GetTable(TableName);
 			JToken jobj = await GetFromCache();
-			if (jobj != null)
+			if (jobj != null && !string.IsNullOrEmpty(jobj.ToString()))
 				return jobj;
 			jobj = await table.ReadAsync(string.Empty);
 			await WriteToCache(jobj);
@@ -32,7 +32,7 @@ namespace Xamarin.Forms.Pages.Azure
 		Task<Stream> GetFileCacheStream()
 		{
 			IIsolatedStorageFile store = Device.PlatformServices.GetUserStoreForApplication();
-			Task<Stream> file = store.OpenFileAsync("storedCode", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+			Task<Stream> file = store.OpenFileAsync(Path.Combine("storedCode" + TableName + ".json"), FileMode.OpenOrCreate, FileAccess.ReadWrite);
 			return file;
 		}
 
@@ -40,11 +40,15 @@ namespace Xamarin.Forms.Pages.Azure
 		{
 			try
 			{
-				Stream file = await GetFileCacheStream();
-				var writer = new StreamReader(file);
-				return await writer.ReadToEndAsync();
+				string result;
+				using (Stream file = await GetFileCacheStream())
+				using (var writer = new StreamReader(file))
+				{
+					result = await writer.ReadToEndAsync();
+				}
+				return string.IsNullOrEmpty(result) ? null : JToken.Parse(result);
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
 				return null;
 			}
@@ -54,12 +58,16 @@ namespace Xamarin.Forms.Pages.Azure
 		{
 			try
 			{
-				Stream file = await GetFileCacheStream();
-				var writer = new StreamWriter(file);
-				await writer.WriteAsync(token.ToString());
+				using (var file = await GetFileCacheStream())
+				using (var writer = new StreamWriter(file))
+				{
+					await writer.WriteAsync(token.ToString());
+					writer.Flush();
+				}
 			}
 			catch (Exception ex)
 			{
+				System.Diagnostics.Debug.WriteLine(ex);
 			}
 		}
 	}
