@@ -20,6 +20,8 @@ namespace Xamarin.Forms.Pages
 
 		public override async Task<string> GetJson()
 		{
+			if (Uri == null)
+				return null;
 			await Task.Delay(40);
 			if (Uri.OriginalString.EndsWith("sessions", StringComparison.OrdinalIgnoreCase))
 			{
