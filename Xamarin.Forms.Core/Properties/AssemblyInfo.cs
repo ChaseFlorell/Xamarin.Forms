@@ -52,5 +52,6 @@ using Xamarin.Forms;
 [assembly: InternalsVisibleTo("Xamarin.Forms.Build.Tasks")]
 [assembly: InternalsVisibleTo("Xamarin.Forms.Platform")]
 [assembly: InternalsVisibleTo("Xamarin.Forms.Pages")]
+[assembly: InternalsVisibleTo("Xamarin.Forms.Pages.Azure")]
 [assembly: InternalsVisibleTo("Xamarin.Forms.Pages.UnitTests")]
 [assembly: Preserve]
