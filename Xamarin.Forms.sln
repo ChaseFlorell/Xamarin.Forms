@@ -49,6 +49,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuspec", ".nuspec", "{7E12
 		.nuspec\Xamarin.Forms.Maps.props = .nuspec\Xamarin.Forms.Maps.props
 		.nuspec\Xamarin.Forms.Maps.targets = .nuspec\Xamarin.Forms.Maps.targets
 		.nuspec\Xamarin.Forms.nuspec = .nuspec\Xamarin.Forms.nuspec
+		.nuspec\Xamarin.Forms.Pages.Azure.nuspec = .nuspec\Xamarin.Forms.Pages.Azure.nuspec
 		.nuspec\Xamarin.Forms.Pages.nuspec = .nuspec\Xamarin.Forms.Pages.nuspec
 		.nuspec\Xamarin.Forms.targets = .nuspec\Xamarin.Forms.targets
 	EndProjectSection
