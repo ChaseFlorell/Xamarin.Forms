@@ -20,10 +20,15 @@ namespace Xamarin.Forms.Pages
 
 		public override async Task<string> GetJson()
 		{
+			var cachedJson = DependencyService.Get<ISaveAndLoad>().LoadText("speakers.json");
+			if (!string.IsNullOrEmpty(cachedJson))
+				return cachedJson;
+
 			var webClient = new HttpClient();
 			try
 			{
 				string json = await webClient.GetStringAsync(Uri);
+				DependencyService.Get<ISaveAndLoad>().SaveText("speakers.json", json);
 				return json;
 			}
 			catch

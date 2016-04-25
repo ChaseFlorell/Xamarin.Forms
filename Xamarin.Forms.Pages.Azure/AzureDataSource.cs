@@ -10,6 +10,9 @@ namespace Xamarin.Forms.Pages.Azure
 {
 	public class AzureDataSource : BaseDataSource
 	{
+		public static void Init()
+		{ }
+
 		readonly ObservableCollection<IDataItem> _dataItems = new ObservableCollection<IDataItem>();
 		Task _currentParseTask;
 		bool _initialized;
